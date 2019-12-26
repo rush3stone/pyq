@@ -34,14 +34,15 @@ public class PaperService {
 
     private static Paper line2product(String line) {
         Paper p = new Paper();
-        String[] fields = line.split("|");
-        p.setTitle(fields[0]);
-        p.setCover(fields[1]);
-        p.setAuthor(fields[2]);
-        p.setDate(fields[3]);
-        p.setPress(fields[4]);
-        p.setAbs(fields[5]);
-        p.setId(Integer.parseInt(fields[6]));
+        String[] fields = line.split("__!__");
+        p.setId(Integer.parseInt(fields[0]));
+        p.setTitle(fields[1]);
+        p.setCover(fields[2]);
+        p.setAuthor(fields[3]);
+        p.setDate(fields[4]);
+        p.setPress(fields[5]);
+        p.setAbs(fields[6]);
+        p.setCid(Integer.parseInt(fields[7]));
 //        System.out.println("当前正在转换的是:" + fields[1]);
         return p;
     }

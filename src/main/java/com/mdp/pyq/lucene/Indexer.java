@@ -46,7 +46,7 @@ public class Indexer {
 //        indexDir = FSDirectory.open(Paths.get("/home/stone/IdeaProjects/dataIndex"));
 //        dataLocation = "/home/stone/IdeaProjects/data/140k_products.txt";
         dataLocation = "./data/1.txt";
-//        createIndex(analyzer);  // 建一次索引就行, 之后部署上线是扇区注释
+        createIndex(analyzer);  // 建一次索引就行, 之后部署上线是扇区注释
     }
 
 
@@ -146,6 +146,7 @@ public class Indexer {
      */
     public void addPerDoc(IndexWriter writer, Paper p) throws IOException {
         Document doc = new Document();
+        doc.add(new TextField("id", String.valueOf(p.getId()), Field.Store.YES));
         doc.add(new TextField("title", p.getTitle(), Field.Store.YES));
         doc.add(new TextField("cover", p.getCover(), Field.Store.YES));
         doc.add(new TextField("author", p.getAuthor(), Field.Store.YES));
@@ -165,6 +166,7 @@ public class Indexer {
     public void addDoc(Paper p) throws IOException {
         IndexWriter writer = getWriter();
         Document doc = new Document();
+        doc.add(new TextField("id", String.valueOf(p.getId()), Field.Store.YES));
         doc.add(new TextField("title", p.getTitle(), Field.Store.YES));
         doc.add(new TextField("cover", p.getCover(), Field.Store.YES));
         doc.add(new TextField("author", p.getAuthor(), Field.Store.YES));

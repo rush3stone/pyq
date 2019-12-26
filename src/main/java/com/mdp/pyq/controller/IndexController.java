@@ -2,6 +2,7 @@ package com.mdp.pyq.controller;
 
 import com.mdp.pyq.lucene.Indexer;
 import com.mdp.pyq.lucene.LuceneIndex;
+import com.mdp.pyq.pojo.Book;
 import com.mdp.pyq.pojo.Paper;
 import com.mdp.pyq.pojo.Search;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +43,22 @@ public class IndexController {
         }
 
     } // luceneSearch
+
+    /**
+     * 此处实现全文搜索的按类查询: 搜索field(cid)即可??
+     * @param paper
+     * @return
+     * @throws Exception
+     */
+//    @CrossOrigin
+//    @GetMapping("/api/categories/{cid}/books")
+//    public List<Book> listByCategory(@PathVariable("cid") int cid) throws Exception {
+//        if(0 != cid) {
+//            return bookService.listByCategory(cid);
+//        } else {
+//            return list();
+//        }
+//    }
 
     // 新增操作
     @CrossOrigin
